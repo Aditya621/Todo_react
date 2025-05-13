@@ -14,26 +14,26 @@ export default function TodoList({
   const [currentTodo, setCurrentTodo] = useState<any>(null);
   const [sortCompleted, setsortCompleted] = useState(false);
 
-  useEffect(() => {
-    if (tasks.length === 0) return;
+  // useEffect(() => {
+  //   if (tasks.length === 0) return;
 
-    if (allChecked) {
-      debugger;
-      const updatedTasks = tasks.map((todo:any) => ({
-        ...todo,
-        checked: allChecked,
-      }));
-      onTaskChanges(updatedTasks);
-      console.log(updatedTasks);
-    }
-  }, [allChecked]);
+  //   if (allChecked) {
+  //     debugger;
+  //     const updatedTasks = tasks.map((todo:any) => ({
+  //       ...todo,
+  //       checked: allChecked,
+  //     }));
+  //     onTaskChanges(updatedTasks);
+  //     console.log(updatedTasks);
+  //   }
+  // }, [allChecked]);
 
-  useEffect(() => {
-    if (tasks.length === 0) return;
+  // useEffect(() => {
+  //   if (tasks.length === 0) return;
 
-    const allSelected = tasks.every((todo:any) => todo.checked);
-    onAllCheckedChange(allSelected);
-  }, [tasks]);
+  //   const allSelected = tasks.every((todo:any) => todo.checked);
+  //   onAllCheckedChange(allSelected);
+  // }, [tasks]);
 
   const addList = () => {
     if (inputValue.trim() === "") return;
@@ -100,10 +100,23 @@ export default function TodoList({
     //   )
     // );
 
-    const updateCheckbox = tasks.map((todo:any) =>
+    let updateCheckbox = tasks.map((todo:any) =>
       todo.id === id ? { ...todo, checked: !todo.checked } : todo
     );
+
+    const allSelected = updateCheckbox.every((todo:any) => todo.checked);
+
+    if (allSelected) {
+
+      updateCheckbox = updateCheckbox.map((todo:any) => ({
+        ...todo,
+        checked: allSelected,
+      }));
+    }
+    
+    
     onTaskChanges(updateCheckbox);
+    onAllCheckedChange(allSelected);
   };
 
   const toggleSorting = () => {
