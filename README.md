@@ -1,37 +1,39 @@
-# React Todo Application
+# Restaurant Menu Management System
 
-A modern, type-safe Todo application built with React, TypeScript, and Tailwind CSS. This application allows users to create and manage todo groups and tasks with a clean, intuitive interface.
+A modern, responsive web application built with React and Tailwind CSS for managing restaurant menu items. This application allows you to add, view, and manage dishes with their details including price and dietary preferences.
 
 ## Features
 
-- Create and manage todo groups
-- Add tasks within each group
-- Mark tasks as complete/incomplete
-- Delete groups and tasks
-- Responsive design with Tailwind CSS
-- Type-safe implementation with TypeScript
+- 📱 Responsive design that works on both desktop and mobile devices
+- 💾 Local storage integration for data persistence
+- 🍽️ Add dishes with detailed information:
+  - Dish name
+  - Price
+  - Dietary preferences (Veg, Non-Veg, Vegan)
+- 🔄 Real-time updates
+- 🗑️ Reset functionality to clear all entries
+- 🎨 Modern UI with Tailwind CSS
 
-## Tech Stack
+## Technologies Used
 
-- React 19
+- React.js
 - TypeScript
 - Tailwind CSS
-- Vite
-- ESLint
+- Local Storage API
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js (latest LTS version recommended)
+- Node.js (v14 or higher)
 - npm or yarn
 
 ### Installation
 
 1. Clone the repository:
 ```bash
-git clone <your-repo-url>
-cd react-todo-tailwind
+git clone <repository-url>
+cd restroSite
 ```
 
 2. Install dependencies:
@@ -48,55 +50,53 @@ npm run dev
 yarn dev
 ```
 
-The application will be available at `http://localhost:5173`
+4. Open [http://localhost:5173](http://localhost:5173) in your browser to view the application.
 
-### Building for Production
+## Usage
 
-To create a production build:
+1. **Adding a Dish**
+   - Enter the dish name
+   - Set the price
+   - Select dietary preferences (Veg, Non-Veg, Vegan)
+   - Click "Add Dishes" button
 
-```bash
-npm run build
-# or
-yarn build
-```
+2. **Viewing Dishes**
+   - All added dishes are displayed in a responsive table
+   - Each dish shows its name, price, and dietary preferences
+   - Data persists even after page refresh
 
-## Project Structure
+3. **Resetting**
+   - Click "Reset Dishes" to clear all entries
+   - This will remove all dishes from both the display and local storage
 
-```
-src/
-├── Components/
-│   ├── TodoGroup.tsx    # Main component for todo groups
-│   └── TodoList.tsx     # Component for individual todo lists
-├── App.tsx              # Root component
-└── main.tsx             # Application entry point
-```
+## Data Structure
 
-## TypeScript Interfaces
-
-The application uses the following TypeScript interfaces:
-
+Each dish entry contains:
 ```typescript
-interface TodoItem {
+{
   id: number;
-  value: string;
-  checked: boolean;
-}
-
-interface TodoGroup {
-  id: number;
-  value: string;
-  checked: boolean;
+  name: string;
+  price: number;
+  isVeg: boolean;
+  isNonVeg: boolean;
+  isVegan: boolean;
 }
 ```
 
 ## Contributing
 
 1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- Built with [React](https://reactjs.org/)
+- Styled with [Tailwind CSS](https://tailwindcss.com/)
+- Icons and UI inspiration from various sources
